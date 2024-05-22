@@ -38,7 +38,7 @@ Stream 생성 -> 중간 연산 -> 최종 연산 과정으로 진행된다.
 | :--------------: | :------------------------------------------------------------ |
 |   empty stream   | Stream.empty();                                               |
 |    Collection    | ArrayList.stream();                                           |
-|      Array       | Arrays.stream(Arr);                                           |
+|      Array       | Arrays.stream(arr);                                           |
 |     builder      | Stream.<String>builder().add("a").build();                    |
 |     generate     | Stream.generate(() -> "a").limit(3);                          |
 |     Iterator     | Stream.iterate(70, (n) -> n + 10).limit(3)                    |
