@@ -81,6 +81,7 @@ Stream<String> a = member.stream();
 noobs = a.distinct()
 .filter(s -> s.contains("신입")) //filter를 사용해서 신입 회원 필터링한다.
 .map(s -> s.substring(s.indexOf("-")+1)).toList();
+
 //map을 통해 데이터를 변환시켜서 리스트에 저장한다.
 //Stream으로 추출한 데이터를 바로 Collection에 저장하면 오류가 난다.
 //이유는 Collection과 Stream객체는 타입이 다르기 때문이다.
