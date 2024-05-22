@@ -26,7 +26,8 @@ Stream API란 자바의 람다식을 이용해서 컬렉션 데이터를 효율�
 
 `내부 반복` : Stream은 내부적으로 반복하기 때문에 따로 반복문을 사용할 필요가 없다. <br>
 `일회성` : Stream은 재사용이 불가능 하고 일회성으로 사용한다.<br>
-`원본데이터 보호` : Stream은 따로 객체를 만들어서 사용하기 때문에 원본 데이터에 영향을 끼치지 않는다.
+`원본데이터 보호` : Stream은 따로 객체를 만들어서 사용하기 때문에 원본 데이터에 영향을 끼치지 않는다. <br>
+`람다식` : Stream안에 들어가는 식은 람다식으로 표현한다.
 
 ### Stream API의 사용법
 
@@ -65,3 +66,34 @@ Stream 생성 -> 중간 연산 -> 최종 연산 과정으로 진행된다.
 | 요소의 통계 | count(), min(), max()               |
 | 요소의 연산 | sum(), average()                    |
 | 요소의 수집 | collect()                           |
+
+
+### 예제
+```
+//*****Stream에서 추출한 데이터를 List에 저장하는 경우*****
+
+List<String> noobs;
+
+//stream 생성
+Stream<String> a = member.stream();  
+//기본적으로 Collection은 stream()을 지원함
+
+noobs = a.distinct()
+.filter(s -> s.contains("신입")) //filter를 사용해서 신입 회원 필터링한다.
+.map(s -> s.substring(s.indexOf("-")+1)).toList();
+//map을 통해 데이터를 변환시켜서 리스트에 저장한다.
+//Stream으로 추출한 데이터를 바로 Collection에 저장하면 오류가 난다.
+//이유는 Collection과 Stream객체는 타입이 다르기 때문이다.
+//Collection의 toList()함수를 통해 리스트로 변환해서 넣어준다.
+
+
+//****Stream에서 나온 데이터를 바로 출력하는 경우*****
+
+//Stream은 한번 사용하면 닫히기 때문에 다른 Stream을 생성해 준다.
+Stream<String> b = member.stream();
+
+b.filter(x -> x.contains("신입"))
+.map(s -> s.substring(s.indexOf("-")+1))
+.forEach( s -> System.out.println(s+"님 안녕하세요!"));
+//forEach는 Stream객체를 출력해준다.
+```
