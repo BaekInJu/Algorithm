@@ -1,8 +1,8 @@
 # Stream API
 
-### 개요
+### StreamAPI란?
 
-Stream API란 자바의 람다식을 이용해서 컬렉션 데이터를 효율적으로 가공할 수 있는 인터페이스다. 대표적으로 필터링, 매핑, 정렬, 집계 등의 작업이 있다.
+자바의 람다식을 이용해서 컬렉션 데이터를 효율적으로 가공할 수 있는 인터페이스다. 대표적으로 필터링, 매핑, 정렬, 집계 등의 작업이 있다.
 
 ### 장점
 
@@ -67,15 +67,15 @@ Stream 생성 -> 중간 연산 -> 최종 연산 과정으로 진행된다.
 | 요소의 연산 | sum(), average()                    |
 | 요소의 수집 | collect()                           |
 
-
 ### 예제
+
 ```
 //*****Stream에서 추출한 데이터를 List에 저장하는 경우*****
 
 List<String> noobs;
 
 //stream 생성
-Stream<String> a = member.stream();  
+Stream<String> a = member.stream();
 //기본적으로 Collection은 stream()을 지원함
 
 noobs = a.distinct()
