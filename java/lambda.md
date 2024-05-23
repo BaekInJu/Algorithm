@@ -10,9 +10,7 @@
 
 ### 사용 방법
 
-```
 
-```
 
 ### @FunctionalInterface
 
